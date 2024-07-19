@@ -1,0 +1,24 @@
+.shimmer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 4vw 8vw 3vw 8vw;
+}
+
+.shimmer-cards{
+    width: 12vw;
+    height: 16vw;
+    background: linear-gradient(to right, #eee 20% , #fafafa 50% , #eee 80% );
+    background-size: 200%;
+    background-position-x: 100%;
+    margin: 1.7vw;
+    border-radius: 15px;
+    animation: shimmer 1.5s infinite linear;
+}
+
+@keyframes shimmer {
+    to{
+        background-position-x: -100%;
+    }
+}
