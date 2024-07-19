@@ -1,5 +1,6 @@
 # dependencies
 node_modules/
+.parcel-cache/
 
 # production
 build/
@@ -11,6 +12,7 @@ dist/
 *.log
 *.tmp
 *.swp
+TailwindCSS.txt
 
 # local environment settings
 .vscode/
