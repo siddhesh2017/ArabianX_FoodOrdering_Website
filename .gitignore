@@ -1,0 +1,17 @@
+# dependencies
+node_modules/
+
+# production
+build/
+dist/
+
+# misc
+.DS_Store
+.env
+*.log
+*.tmp
+*.swp
+
+# local environment settings
+.vscode/
+.idea/
