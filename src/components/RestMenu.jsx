@@ -3,12 +3,11 @@ import {useState, useEffect} from 'react';
 import {useParams} from 'react-router-dom';
 import { CARD_IMG_URL } from '../config';
 import ShimmerUI from './ShimmerUI';
+import MenuItemCard from './MenuItemCard';
 import '../components/RestMenu.css';
 import RATING from '../assets/img/star-6-16.png';
 import DELIVERY_LOGO from "../assets/img/shipped.png";
-import PLUS_ICON from "../assets/img/plus.png";
 import { useDispatch } from 'react-redux';
-import { addItem } from '../utils/redux-store/cartSlice';
 
 const RestMenu = () => {
   //how to use dynamic url params
@@ -31,10 +30,7 @@ const RestMenu = () => {
       setMenu1(menus);
   }
 
-  const  handleAdd = (items) => {
-    console.log(items);
-    dispatch(addItem(items));  
-  }
+ 
 
   return (!selectedItem) ? <ShimmerUI/>: (
       <div className='menu-container'>
@@ -75,10 +71,10 @@ const RestMenu = () => {
         </div>
         
         <div className='menu-list'>
-          <h2>Menu</h2>
-          <ul>
-            {menu1?.map((item) => <div key={item?.card?.info?.id}><li> {item?.card?.info?.name}</li> <button  onClick={()=>handleAdd(item.card.info)}>Add <img width={15} height={15} src={PLUS_ICON}/> </button> </div>)}
-          </ul>
+          <div className='break-line'></div>
+          <h1>Menu</h1>
+          {/* {item?.card?.info?.name} */}
+            {menu1?.map((item) => <MenuItemCard key={item?.card?.info?.id} btnVal={'Add'} {...item?.card?.info} />)}
         </div>
       </div>
     )

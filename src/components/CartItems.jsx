@@ -1,14 +1,15 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-
+import MenuItemCard from './MenuItemCard';
 
 const CartItems = ()=>{
 
-    const cardItemss = useSelector((store) => store.cart.items);
-    console.log(cardItemss);
+    const cardItems = useSelector(store => store.cart.items);
+    console.log(cardItems);
     return(
-        <div>
-            { cardItemss?.map((item) => <div key={item.id}>{item.name}</div>) }
+        <div className='menu-list'>
+            <h1>Cart</h1>
+            {cardItems?.map((item) => <MenuItemCard key={item?.id} btnVal={'Remove'} {...item} />)}
         </div>
     )
 }

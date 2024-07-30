@@ -278,3 +278,100 @@
     width: 1.2em;
     height: 1.2em;
   }
+
+.menu-list {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;
+}
+
+.menu-item {
+  width: 70%;
+  height: 12em;
+  background-color: #ffe194;
+  margin: 1em;
+  border-radius: 10px;
+  padding: 1.5em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2em;
+}
+
+.menu-item-data{ 
+  display: flex;
+  gap: 2.5em;
+}
+
+.menu-item-img {
+  width: 12em;
+  height: 8em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-item-img img {
+  width: 100%;
+  height: 115%;
+  background-position: center;
+  border-radius: 10px;
+}
+
+.menu-item-info{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  gap: .4em;
+  width: 50%;
+}
+
+.menu-item-info h2{
+  font-family: Gilroy, Gilroy-ExtraBold;
+  font-size: 20px;
+}
+
+.menu-item-info p{
+  font-family: Gilroy, Gilroy-ExtraBold;
+  font-size: 14px;
+  color: #646464;
+}
+
+.menu-item-btn {
+  width: 120px;
+  height: 2.5em;
+  background-color: green;
+  border-radius: 10px;
+  padding: 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  font-family: Gilroy, Gilroy-ExtraBold;
+  font-size: large;
+  font-weight: 900;
+  border: none;
+  color: white;
+}
+
+
+.plus-icon{
+  width: 1.5em;
+  height: 1.5em;
+}
+
+.veg-nonveg-icon{
+  width: 2em;
+  height: 2em;
+}
+
+.menu-item-h5{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: .5em;
+}
