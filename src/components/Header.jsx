@@ -1,8 +1,13 @@
 import LOGO from '../assets/img/logo1.png';
-import {Link} from 'react-router-dom'
-
+import CART_LOGO from '../assets/img/shopping-cart.png'
+import {Link} from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import store from '../utils/redux-store/store';
 
 const Header = () => {
+
+    const cartItems = useSelector(store => store.cart.items)
+
     return (
         <div id='navbar'>
 
@@ -15,7 +20,15 @@ const Header = () => {
                 <ul>
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/aboutus">About</Link></li>
-                    <li><Link to="/contactus">Contact us</Link></li>
+                    <li><Link to="/instamart">InstaMart</Link></li>
+                    <li>
+                    <Link to="/cart">
+                        <div className='cart-btn'>
+                            <img src={CART_LOGO}/>
+                            <p>{cartItems.length}</p>
+                        </div>
+                    </Link>
+                    </li>
                     <li>
                         <button className="Btn">
     

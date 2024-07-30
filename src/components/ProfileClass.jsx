@@ -1,5 +1,5 @@
 import React from 'react';
-
+import UserContext from '../utils/UserContext';
 class ProfileClass extends React.Component {
 
     constructor(props){
@@ -41,6 +41,9 @@ class ProfileClass extends React.Component {
         console.log(this.state.name+' Child - render');
         return(
             <div>
+                <UserContext.Consumer>
+                    {({user})=><h1>{user.email}</h1>}
+                </UserContext.Consumer>
                 <h1>{this.props.name}</h1>
                 <h2>{this.state.name}</h2>
                 <h3>{this.state.newName}</h3>

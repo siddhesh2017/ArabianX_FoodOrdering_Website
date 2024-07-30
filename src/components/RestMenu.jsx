@@ -5,14 +5,17 @@ import { CARD_IMG_URL } from '../config';
 import ShimmerUI from './ShimmerUI';
 import '../components/RestMenu.css';
 import RATING from '../assets/img/star-6-16.png';
-import DELIVERY_LOGO from "../assets/img/shipped.png"
+import DELIVERY_LOGO from "../assets/img/shipped.png";
+import PLUS_ICON from "../assets/img/plus.png";
+import { useDispatch } from 'react-redux';
+import { addItem } from '../utils/redux-store/cartSlice';
 
 const RestMenu = () => {
   //how to use dynamic url params
   const {id} = useParams();
   const [selectedItem, setSelectedItem] = useState(null);
   const [menu1, setMenu1] = useState([]);
-  console.log(id);
+  const dispatch = useDispatch();
 
   useEffect(() =>{
     getMenuData();
@@ -21,12 +24,16 @@ const RestMenu = () => {
   async function getMenuData(){
       const menuData = await fetch(`https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=18.5203896&lng=73.8567005&restaurantId=${id}&catalog_qa=undefined&submitAction=ENTER`);
       const midMenu = await menuData.json();
-      console.log(midMenu);
       const menuItem = await midMenu?.data?.cards[2]?.card?.card?.info;
       const menus = await midMenu?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards;
       // const menus2 = await midMenu?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.categories;
       setSelectedItem(menuItem);
       setMenu1(menus);
+  }
+
+  const  handleAdd = (items) => {
+    console.log(items);
+    dispatch(addItem(items));  
   }
 
   return (!selectedItem) ? <ShimmerUI/>: (
@@ -66,17 +73,18 @@ const RestMenu = () => {
 
             </div>
         </div>
+        
         <div className='menu-list'>
           <h2>Menu</h2>
           <ul>
-            {menu1?.map((item) => <li key={item?.card?.info?.id}> {item?.card?.info?.name} </li>)}
+            {menu1?.map((item) => <div key={item?.card?.info?.id}><li> {item?.card?.info?.name}</li> <button  onClick={()=>handleAdd(item.card.info)}>Add <img width={15} height={15} src={PLUS_ICON}/> </button> </div>)}
           </ul>
         </div>
       </div>
     )
   }
   
-  export default RestMenu
+  export default RestMenu;
 
 
 
