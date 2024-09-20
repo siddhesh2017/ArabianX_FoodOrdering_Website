@@ -31,6 +31,8 @@ const Applayout = () => {
     )
 }
 
+const basename = process.env.NODE_ENV === 'production' ? '/ArabianX_FoodOrdering_Website' : '';
+
 const appRouter = createBrowserRouter([
     {
         path: '/',
@@ -62,7 +64,9 @@ const appRouter = createBrowserRouter([
         ]
     },
     
-])
+],
+{ basename }
+);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<RouterProvider router={appRouter} />);

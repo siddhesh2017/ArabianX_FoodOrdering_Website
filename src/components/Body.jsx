@@ -46,7 +46,7 @@ const Body = () => {
     }
     catch(e){
       console.log("Error fetching data: ", e);
-      location.reload();
+      // location.reload();
     }
   }
 
