@@ -136,7 +136,6 @@ const Error = () => {
                         </svg>
                     </div>
                 </div>
-
             </div>
             <div id='desc-box'>
                 <h1>Error {err.status}</h1>

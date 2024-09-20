@@ -12,7 +12,7 @@ const Header = () => {
         <div id='navbar'>
 
             <div id='logo'>
-                <img src={LOGO} alt='logo'></img>
+                <img data-testid="logo" src={LOGO} alt='logo'></img>
                 <h1>Arabianx</h1>
             </div>
           
@@ -25,7 +25,7 @@ const Header = () => {
                     <Link to="/cart">
                         <div className='cart-btn'>
                             <img src={CART_LOGO}/>
-                            <p>{cartItems.length}</p>
+                            <p data-testid='cart'>{cartItems.length}</p>
                         </div>
                     </Link>
                     </li>

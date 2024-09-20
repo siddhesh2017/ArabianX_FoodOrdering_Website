@@ -7,3 +7,6 @@ const store = configureStore({
     }
 });
 export default store;
+
+//npm install @reduxjs/toolkit
+//npm install react-redux

@@ -7,13 +7,15 @@ import { useDispatch } from 'react-redux';
 import { addItem } from '../utils/redux-store/cartSlice';
 
 const MenuItemCard = (props) => {
-    const {description, finalPrice, name, inStock, isVeg, imageId, btnVal} = props;
+    const { description, finalPrice, name, inStock, isVeg, imageId, btnVal } = props;
     const dispatch = useDispatch();
+    {console.log(btnVal)}
+
 
     const handleAddItem = (item) => {
         dispatch(addItem(item));
     }
-    console.log(props);
+    
     return (
         <div className='menu-item'>
             <div className='menu-item-data'>
@@ -28,7 +30,7 @@ const MenuItemCard = (props) => {
                 </div>
             </div>
             <div className='menu-item-btn'>
-                <button className='menu-item-btn' onClick={() => handleAddItem(props)} >{btnVal} <img className='plus-icon' src={PLUS} /></button>
+                <button className='menu-item-btn' onClick={() => handleAddItem(props)} >{ btnVal } <img className='plus-icon' src={PLUS} /></button>
             </div>
         </div>
         

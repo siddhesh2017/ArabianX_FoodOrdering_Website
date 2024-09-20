@@ -73,8 +73,8 @@ const RestMenu = () => {
         <div className='menu-list'>
           <div className='break-line'></div>
           <h1>Menu</h1>
-          {/* {item?.card?.info?.name} */}
-            {menu1?.map((item) => <MenuItemCard key={item?.card?.info?.id} btnVal={'Add'} {...item?.card?.info} />)}
+          
+            {menu1?.map((item) => <MenuItemCard key={item?.card?.info?.id*3+12} btnVal={'Add'} {...item?.card?.info} />)}
         </div>
       </div>
     )
